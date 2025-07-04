@@ -3,18 +3,21 @@ import './App.css';
 
 export default class App extends Component {
 
-  todoData = [
-    {
-      id : "1",
-      title: "공부하기",
-      completed: true,
-    },
-    {
-      id : "2",
-      title: "청소하기",
-      completed: false,
-    }
-  ]
+  state = {
+    todoData : [
+      {
+        id : "1",
+        title: "공부하기",
+        completed: false,
+      },
+      {
+        id : "2",
+        title: "청소하기",
+        completed: false,
+      }
+    ],
+    value : '',
+  }
 
   btnStyle = {
     color: '#fff',
@@ -25,12 +28,50 @@ export default class App extends Component {
     float: 'right'
   }
 
-  getStyle = () => {
+  getStyle = (completed) => {
     return {
       padding: '10px',
       borderBottom: '1px #ccc dotted',
-      textDecoration: 'none'
+      textDecoration: completed ? 'line-through' : 'none'
     }
+  }
+
+  handleClick = (id) => {
+    console.log(id);
+    let newTodoData = this.state.todoData.filter((data) => data.id !== id);
+    console.log(newTodoData);
+    this.setState({todoData : newTodoData});
+  }
+
+  handleChange = (e) => {
+    console.log(e.target.value);
+    this.setState({value : e.target.value})
+  }
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    
+    let newTodo = {
+      id : Date.now(),
+      title : this.state.value,
+      completed : false,
+    }
+
+    this.setState({
+      todoData : [...this.state.todoData, newTodo],
+      value : ['']
+    })
+  }
+
+  handleCompleteChange = (id) => {
+    let newTodoData = this.state.todoData.map((data) => {
+      if (data.id === id) {
+        data.completed = !data.completed;
+      }
+      return data;
+    })
+
+    this.setState({todoData: newTodoData});
   }
 
   render() {
@@ -42,14 +83,34 @@ export default class App extends Component {
           </div>
 
       {
-        this.todoData.map((data) => (
-          <div key={data.id} style={this.getStyle()}>
-            <input type='checkbox' defaultChecked={false}/>
+        this.state.todoData.map((data) => (
+          <div key={data.id} style={this.getStyle(data.completed)}>
+            <input type='checkbox' 
+            onChange={() => this.handleCompleteChange(data.id)} 
+            checked={data.completed}/>
             {data.title}
-            <button style={this.btnStyle}>X</button>
+            <button style={this.btnStyle} onClick={() => this.handleClick(data.id)}>X</button>
           </div>
         ))
       }
+
+      <form style={{display: 'flex'}} onSubmit={this.handleSubmit}>
+        <input 
+        type='text'
+        name='value'
+        style={{flex: '10', padding: '5px'}}
+        placeholder='할 일을 입력하시오.'
+        value={this.state.value}
+        onChange={this.handleChange}
+        />
+
+        <input
+        type='submit'
+        value='입력'
+        className='btn'
+        style={{flex: '10px'}}
+        />
+      </form>
       
         </div>
       </div>
