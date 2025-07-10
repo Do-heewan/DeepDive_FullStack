@@ -1,0 +1,67 @@
+.container {
+    border: 6px solid lightblue;
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 200;
+    align-content: space-around;
+}
+
+.button {
+    color: white;
+    background-color: white;
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: center;
+}
+
+.buttonA {
+    background-color: rgb(20, 40, 192);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 3s ease-in;
+}
+
+.buttonA:hover {
+    opacity: 0.7;
+    background-color: black;
+}
+
+.buttonA:active {
+    opacity: 0.3;
+}
+
+.buttonB {
+    color: rgb(6,95,212);
+    background-color: lightgreen;
+    border-color: rgb(212, 6, 64);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 3s, color 1.5s;
+}
+
+.buttonB:hover {
+    opacity: 0.7;
+    background-color: rgb(6,95,212);
+    color: white;
+}
+
+.buttonB:active {
+    opacity: 0.5;
+}
+
+.buttonC {
+    color: white;
+    background-color: rgb(25,69, 98);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 3s ease-out;
+}
+
+.buttonC:hover {
+    box-shadow: 5px 5px 10px rgba(0,0,0, 0.5);
+}

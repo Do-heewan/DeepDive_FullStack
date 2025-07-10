@@ -1,0 +1,17 @@
+.grid-container {
+    display: grid;
+    padding: 10px;
+    background-color: antiquewhite;
+    grid-template-columns: auto auto auto;
+    column-gap: 16px;
+    row-gap: 40px;
+}
+
+.item {
+    margin-bottom: 8px;
+    position: relative;
+}
+
+.image {
+    width: 100%;
+}
