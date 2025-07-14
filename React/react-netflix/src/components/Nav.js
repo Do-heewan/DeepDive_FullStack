@@ -19,20 +19,19 @@ export default function Nav() {
         };
     }, []);
 
-
-  return (
-    <nav className={`nav ${show && "nav_black"}`}>
-        <img 
-            alt='Netflix logo'
-            src='https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png'
-            className='nav_logo'
-            onClick={() => window.location.reload()}
-        />
-        <img 
-            alt='User logged'
-            src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1751546922/noticon/lsabo81iufpfjrhnxze9.png'
-            className='nav_avatar'
-        />
-    </nav>
-  );
+    return (
+        <nav className={`nav ${show && "nav_black"}`}>
+            <img 
+                alt='Netflix logo'
+                src='https://images.ctfassets.net/4cd45et68cgf/7LrExJ6PAj6MSIPkDyCO86/542b1dfabbf3959908f69be546879952/Netflix-Brand-Logo.png'
+                className='nav_logo'
+                onClick={() => window.location.reload()}
+            />
+            <img 
+                alt='User logged'
+                src='https://noticon-static.tammolo.com/dgggcrkxq/image/upload/v1751546922/noticon/lsabo81iufpfjrhnxze9.png'
+                className='nav_avatar'
+            />
+        </nav>
+    );
 }
