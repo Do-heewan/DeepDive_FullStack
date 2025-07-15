@@ -29,3 +29,14 @@
     width: 30px;
     object-fit: contain;
 }
+
+.nav__input {
+    position: fixed;
+    left: 48%;
+    transform: translare(-50%, 0);
+    background-color: rgb(45, 45, 45);
+    border-radius: 5px;
+    color: white;
+    padding: 5px;
+    border: none;
+}
