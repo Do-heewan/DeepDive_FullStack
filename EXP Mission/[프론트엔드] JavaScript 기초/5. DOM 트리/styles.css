@@ -1,0 +1,18 @@
+body {
+    background-color: rgb(203, 235, 248);
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    margin-left: 410px;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    width: 25px;
+}
