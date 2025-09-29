@@ -2,18 +2,16 @@ import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import Head from "next/head";
 import homeStyles from "../styles/Home.module.css"
+import { getSortedPostsData } from "@/lib/posts";
+import { GetStaticProps, NextPage } from "next";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
+const Home = ({allPostsData}: {
+  allPostsData: {
+    date: string,
+    title: string,
+    id: string
+  }[]
+}) => {
   return (
     <div>
       <Head>
@@ -28,10 +26,29 @@ export default function Home() {
       <section className={`${homeStyles.headingMd} ${homeStyles.padding1px}`}>
         <h2 className={homeStyles.headingLg}>Blog</h2>
         <ul className={homeStyles.list}>
-
+          {allPostsData.map(({id, date, title}) => 
+          <li className={homeStyles.listItem} key={id}>
+            <a>{title}</a>
+            <br />
+            <small className={homeStyles.lightText}>
+              {date}
+            </small>
+          </li>
+          )}
         </ul>
       </section>
 
     </div>
   );
+}
+
+export default Home;
+
+export const getStaticProps: GetStaticProps = async() => {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData
+    }
+  }
 }
