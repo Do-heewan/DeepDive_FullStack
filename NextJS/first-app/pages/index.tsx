@@ -4,6 +4,7 @@ import Head from "next/head";
 import homeStyles from "../styles/Home.module.css"
 import { getSortedPostsData } from "@/lib/posts";
 import { GetStaticProps, NextPage } from "next";
+import Link from "next/dist/client/link";
 
 const Home = ({allPostsData}: {
   allPostsData: {
@@ -28,7 +29,9 @@ const Home = ({allPostsData}: {
         <ul className={homeStyles.list}>
           {allPostsData.map(({id, date, title}) => 
           <li className={homeStyles.listItem} key={id}>
-            <a>{title}</a>
+            <Link href={`/posts/${id}`}>
+              {title}
+            </Link>
             <br />
             <small className={homeStyles.lightText}>
               {date}
