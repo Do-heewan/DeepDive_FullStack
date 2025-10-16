@@ -27,12 +27,12 @@ CSR을 하면 첫 페이지에서 빈 html을 불러와서 JS파일을 해석하
 
 ### 설치 방법
 ```
-npx  create-next-app@latest
+npx create-next-app@latest
 yarn create next-app
 ```
 
 ```
-npx  create-next-app@latest --typescript
+npx create-next-app@latest --typescript
 yarn create next-app --typescript
 ```
 
