@@ -43,7 +43,7 @@ export default function Row({title, id, fetchUrl, isLargeRow}) {
                 <img
                     key={movie.id}
                     className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-                    src={`https://image.tmdb.org/t/p/original/${isLargeRow ? movie.poster_path: movie.backdrop_path} `}
+                    src={`https://image.tmdb.org/t/p/original${isLargeRow ? movie.poster_path: movie.backdrop_path}`}
                     alt={movie.name}
                     onClick={() => handleClick(movie)}
                 />
