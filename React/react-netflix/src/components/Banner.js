@@ -37,8 +37,8 @@ export default function Banner() {
     if (!isClicked) {
         return(
             <header
-        className='banner'
-        style={{
+            className='banner'
+            style={{
             backgroundImage : `url("http://image.tmdb.org/t/p/original${movie.backdrop_path}")`,
             backgroundPosition : "top center",
             backgroundSize : "cover",
