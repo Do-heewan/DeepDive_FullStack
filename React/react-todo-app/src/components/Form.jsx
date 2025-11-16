@@ -1,4 +1,7 @@
-export default function Form({handleSubmit, value, setValue}) {
+import { useTodo } from "../context/TodoContext";
+
+export default function Form() {
+    const { handleSubmit, value, setValue } = useTodo();
 
     const handleChange = (e) => {
         console.log(e.target.value);

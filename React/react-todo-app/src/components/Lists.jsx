@@ -1,6 +1,8 @@
 import List from './List'
+import { useTodo } from '../context/TodoContext';
 
-export default function Lists({todoData, setTodoData}) {
+export default function Lists() {
+  const { todoData, setTodoData } = useTodo();
 
     return <div>
         {

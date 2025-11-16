@@ -2,6 +2,7 @@ import './App.css';
 import {useState} from 'react';
 import Lists from './components/Lists';
 import Form from './components/Form';
+import { TodoProvider } from './context/TodoContext';
 
 export default function App() {
 
@@ -26,24 +27,26 @@ export default function App() {
   }
 
   return (
-    <div className='container'>
-      <div className='todo-block'>
-        <div className='title'>
-          <h1>할 일 목록</h1>
+    <TodoProvider>
+      <div className='container'>
+        <div className='todo-block'>
+          <div className='title'>
+            <h1>할 일 목록</h1>
+          </div>
+
+      <Lists 
+      todoData={todoData}
+      setTodoData={setTodoData}
+      />
+
+      <Form 
+      handleSubmit={handleSubmit}
+      value={value}
+      setValue={setValue}
+      />
+      
         </div>
-
-    <Lists 
-    todoData={todoData}
-    setTodoData={setTodoData}
-    />
-
-    <Form 
-    handleSubmit={handleSubmit}
-    value={value}
-    setValue={setValue}
-    />
-    
       </div>
-    </div>
+    </TodoProvider>
   );
 }

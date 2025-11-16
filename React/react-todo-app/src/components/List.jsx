@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useTodo } from "../context/TodoContext";
 
-export default function List({title, completed, id, todoData, setTodoData}) {
+export default function List({title, completed, id}) {
     const [isEditing, setIsEditing] = useState(false);
     const [editedTitle, setEditedTitle] = useState(title);
-    
+    const { todoData, setTodoData } = useTodo();
+
     const btnStyle = {
     color: '#fff',
     border: 'none',
